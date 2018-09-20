@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+
+            <solid android:color="@color/bgLight" />
+
+        </shape>
+    </item>
+    <item
+        android:bottom="37dp"
+        android:left="35dp"
+        android:right="35dp"
+        android:top="37dp">
+        <bitmap android:src="@drawable/placeholder" />
+    </item>
+</layer-list>

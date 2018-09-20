@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Delivz</string>
+    <string name="title_activity_details">Delivery Details</string>
+    <string name="google_maps_key">AIzaSyC8HDiX1NvIEu5BSyWzSaaJVozW5M0ZxV4</string>
+    <string name="no_results">Error! Failed to load  😓\nSwipe down to reload</string>
+    <string name="image">image</string>
+    <string name="retry">Retry</string>
+
+</resources>
