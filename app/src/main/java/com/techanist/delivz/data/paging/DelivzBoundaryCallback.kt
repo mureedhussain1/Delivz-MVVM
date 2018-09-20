@@ -19,7 +19,6 @@ class DelivzBoundaryCallback(
     }
 
     init {
-        Log.d("paging_delivz", "on object recreate")
     }
 
     private var offset = 1
@@ -30,13 +29,11 @@ class DelivzBoundaryCallback(
     private var isRequestInProgress = false
 
     override fun onZeroItemsLoaded() {
-        Log.d("paging_delivz", "onZeroItemsLoaded")
         offset = 1
         requestAndSaveData()
     }
 
     override fun onItemAtEndLoaded(itemAtEnd: Delivery) {
-        Log.d("paging_delivz", "onItemAtEndLoaded")
         requestAndSaveData()
     }
 
@@ -48,12 +45,10 @@ class DelivzBoundaryCallback(
         if (isRequestInProgress) return
         isRequestInProgress = true
         _networkState.postValue(NetworkState.LOADING)
-        Log.d("paging_delivz", "Loading offset : $offset")
         service.getDeliveries(offset, NETWORK_PAGE_SIZE)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .subscribe({
-                    Log.d("paging_delivz", "Loaded offset : $offset")
                     _networkState.postValue(NetworkState.LOADED)
                     if (offset == 1) cache.deleteAll()
                     cache.insert(it) {
@@ -61,7 +56,6 @@ class DelivzBoundaryCallback(
                         isRequestInProgress = false
                     }
                 }, {
-                    Log.d("paging_delivz", "Load failed offset : $offset")
                     isRequestInProgress = false
                     _networkState.postValue(NetworkState.FAILED(it.message))
                 })

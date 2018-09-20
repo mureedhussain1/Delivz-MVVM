@@ -1,7 +1,6 @@
 package com.techanist.delivz.data
 
 import android.arch.paging.LivePagedListBuilder
-import android.util.Log
 import com.techanist.delivz.data.db.DelivzLocalCache
 import com.techanist.delivz.data.paging.DelivzApiResult
 import com.techanist.delivz.data.paging.DelivzBoundaryCallback
@@ -14,7 +13,6 @@ class ApiRepository(
     var retry = {}
 
     fun getDeliveries(): DelivzApiResult {
-        Log.d("paging_delivz", "ApiRepo.getDeliveries")
         val dataSourceFactory = cache.getAll()
         val boundaryCallback = DelivzBoundaryCallback(service, cache)
         retry = {

@@ -3,9 +3,8 @@ package com.techanist.delivz.view
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.techanist.delivz.R
 import com.techanist.delivz.data.paging.NetworkState
@@ -37,12 +36,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.delivz.observe(this, Observer {
             it.let(adapter::submitList)
             binding.emptyList.visibility = View.GONE
-            Log.d("paging_delivz", "Got items : ${it?.size}")
         })
 
         viewModel.networkStates.observe(this, Observer {
             adapter.setNetworkState(it)
-            Log.d("paging_delivz", "Got state : ${it.toString()}")
             if (it != NetworkState.LOADING) {
                 binding.progress.visibility = View.GONE
                 if (binding.refresh.isRefreshing)
