@@ -11,10 +11,15 @@ class ApiRepository(
         private val service: ApiService,
         private val cache: DelivzLocalCache) {
 
+    var retry = {}
+
     fun getDeliveries(): DelivzApiResult {
         Log.d("paging_delivz", "ApiRepo.getDeliveries")
         val dataSourceFactory = cache.getAll()
         val boundaryCallback = DelivzBoundaryCallback(service, cache)
+        retry = {
+            boundaryCallback.retry()
+        }
         val networkStates = boundaryCallback.networkState
         val data = LivePagedListBuilder(dataSourceFactory, DelivzBoundaryCallback.DATABASE_PAGE_SIZE)
                 .setBoundaryCallback(boundaryCallback)

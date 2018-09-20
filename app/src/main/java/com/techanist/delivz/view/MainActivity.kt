@@ -26,10 +26,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = DeliveryAdapter()
+        val adapter = DeliveryAdapter {
+            viewModel.retry()
+        }
         binding.list.adapter = adapter
         binding.refresh.setOnRefreshListener {
-            //            adapter.submitList(null)
             viewModel.getDeliveries()
         }
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         viewModel.networkStates.observe(this, Observer {
+            adapter.setNetworkState(it)
             Log.d("paging_delivz", "Got state : ${it.toString()}")
             if (it != NetworkState.LOADING) {
                 binding.progress.visibility = View.GONE

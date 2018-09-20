@@ -1,12 +1,8 @@
 package com.techanist.delivz.di
 
-import com.google.gson.JsonParser
-import com.techanist.delivz.DelivzApp
 import com.techanist.delivz.data.ApiRepository
 import com.techanist.delivz.data.ApiService
 import com.techanist.delivz.data.Constants
-import com.techanist.delivz.data.db.DelivzDao
-import com.techanist.delivz.data.db.DelivzDatabase
 import com.techanist.delivz.data.db.DelivzLocalCache
 import dagger.Module
 import dagger.Provides
@@ -14,8 +10,6 @@ import dagger.Reusable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
 
 @Module
 class NetworkModule() {

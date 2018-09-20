@@ -5,7 +5,6 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.PagedList
-import android.view.View
 import com.techanist.delivz.DelivzApp
 import com.techanist.delivz.data.ApiRepository
 import com.techanist.delivz.data.dto.Delivery
@@ -40,6 +39,10 @@ class DeliveryViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
 //        subscription.dispose()
+    }
+
+    val retry = {
+        apiRepository.retry()
     }
 
 }

@@ -18,8 +18,8 @@ abstract class DelivzDatabase : RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(DelivzDatabase::class.java) {
                     if (INSTANCE == null) {
-                        INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                DelivzDatabase::class.java!!, "delivz_database")
+                        INSTANCE = Room.databaseBuilder(context.applicationContext,
+                                DelivzDatabase::class.java, "delivz_database")
                                 .build()
                     }
                 }
@@ -30,8 +30,4 @@ abstract class DelivzDatabase : RoomDatabase() {
 
     abstract fun delivzDao(): DelivzDao
 
-
-    fun destroyInstance() {
-        INSTANCE = null
-    }
 }

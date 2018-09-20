@@ -6,13 +6,7 @@ import dagger.Provides
 import dagger.Reusable
 
 @Module
-class AppModule(delivzApp: DelivzApp) {
-
-    private var app: DelivzApp
-
-    init {
-        app = delivzApp
-    }
+class AppModule(val app: DelivzApp) {
 
     @Provides
     @Reusable

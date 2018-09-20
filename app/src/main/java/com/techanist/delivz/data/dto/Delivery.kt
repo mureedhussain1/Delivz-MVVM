@@ -3,7 +3,6 @@ package com.techanist.delivz.data.dto
 import android.arch.persistence.room.Embedded
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import android.support.annotation.NonNull
 import java.io.Serializable
 
 @Entity

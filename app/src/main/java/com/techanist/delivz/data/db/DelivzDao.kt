@@ -4,13 +4,14 @@ import android.arch.lifecycle.LiveData
 import android.arch.paging.DataSource
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
+import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import android.arch.persistence.room.Query
 import com.techanist.delivz.data.dto.Delivery
 
 
 @Dao
 interface DelivzDao {
-    @Insert/*(onConflict = REPLACE)*/
+    @Insert(onConflict = REPLACE)
     fun save(deliveries: List<Delivery>)
 
     @Query("SELECT * FROM delivery WHERE id = :deliveryId")

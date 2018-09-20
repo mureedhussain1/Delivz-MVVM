@@ -40,6 +40,10 @@ class DelivzBoundaryCallback(
         requestAndSaveData()
     }
 
+    val retry = {
+        requestAndSaveData()
+    }
+
     private fun requestAndSaveData() {
         if (isRequestInProgress) return
         isRequestInProgress = true
@@ -50,12 +54,12 @@ class DelivzBoundaryCallback(
                 .observeOn(Schedulers.io())
                 .subscribe({
                     Log.d("paging_delivz", "Loaded offset : $offset")
+                    _networkState.postValue(NetworkState.LOADED)
                     if (offset == 1) cache.deleteAll()
                     cache.insert(it) {
                         offset += NETWORK_PAGE_SIZE
                         isRequestInProgress = false
                     }
-                    _networkState.postValue(NetworkState.LOADED)
                 }, {
                     Log.d("paging_delivz", "Load failed offset : $offset")
                     isRequestInProgress = false

@@ -10,7 +10,7 @@ object BindingAdapters {
     @JvmStatic
     @BindingAdapter("loadImg")
     fun loadImg(imageView: ImageView, url: String?) {
-        if (url != null && url.length > 0)
+        if (url != null && url.isNotEmpty())
             Picasso.get().load(url)
                     .placeholder(R.drawable.grey_placeholder)
                     .error(R.drawable.grey_placeholder).into(imageView)
