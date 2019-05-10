@@ -40,8 +40,8 @@ Similar to this diagram:
 
 
 ### Result:
-<img src="https://lh4.googleusercontent.com/_yeavCL3eCwT1J-h528_BTxXBfv03225EgzmEplpsWUdJoBd_V1AkNiEk0-3fbwjglFf-ZwkSb2jhxm-zNF2=w2880-h1678" alt="screenshot 1" align="left" height="500"/>
-<img src="https://lh5.googleusercontent.com/vcWtHOhVPTjpYF7gulmrgkKTbChZA1QfLhx1qGmeMfr69efvWmX-BKUI2p2bYZXzD-dIT5_apUHrrun-fKLF=w2880-h1678" alt="screenshot 2" align="left" height="500"/>
+<img src="https://github.com/themhsami/Delivz-MVVM/blob/master/Screenshot_1537595887.png" alt="screenshot 1" align="left" height="500"/>
+<img src="https://github.com/themhsami/Delivz-MVVM/blob/master/Screenshot_1537597762.png" alt="screenshot 2" align="left" height="500"/>
 
 [support-lib]: https://developer.android.com/topic/libraries/support-library/index.html
 [arch]: https://developer.android.com/arch
